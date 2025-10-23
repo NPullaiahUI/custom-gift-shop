@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Product Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .image-container { margin: 10px 0; }
+        img { max-width: 200px; margin: 10px; border: 1px solid #ddd; }
+        .error { color: red; }
+        .success { color: green; }
+        .info { color: blue; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Product Images - ID 1</h1>
+    
+    <div class="debug-section">
+        <h2>1. API Test</h2>
+        <button onclick="testAPI()">Test API</button>
+        <div id="api-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>2. Raw Data</h2>
+        <div id="raw-data"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>3. Image Parsing</h2>
+        <div id="parsing-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>4. Image Loading Test</h2>
+        <div id="image-test"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>5. Console Log</h2>
+        <div id="console-log"></div>
+    </div>
+
+    <script>
+        let productData = null;
+        
+        // Override console methods
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        const logDiv = document.getElementById('console-log');
+        
+        function addToLog(message, type = 'info') {
+            const color = type === 'error' ? 'red' : type === 'success' ? 'green' : 'blue';
+            logDiv.innerHTML += `<div style="color: ${color};">[${type.toUpperCase()}] ${message}</div>`;
+        }
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            addToLog(args.join(' '), 'success');
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            addToLog(args.join(' '), 'error');
+        };
+        
+        console.warn = function(...args) {
+            originalWarn.apply(console, args);
+            addToLog(args.join(' '), 'error');
+        };
+        
+        async function testAPI() {
+            try {
+                console.log('🔍 Testing API...');
+                const response = await fetch('php/api.php?action=get-product&id=1');
+                console.log('📡 API Response received');
+                
+                const data = await response.json();
+                console.log('📊 Data parsed successfully');
+                
+                document.getElementById('api-result').innerHTML = `
+                    <div class="success">✅ API Success!</div>
+                    <div class="info">Status: ${data.success ? 'SUCCESS' : 'FAILED'}</div>
+                `;
+                
+                if (data.success && data.data) {
+                    productData = data.data;
+                    showRawData(data.data);
+                    testImageParsing(data.data);
+                    testImageLoading(data.data);
+                } else {
+                    console.error('❌ API returned no data');
+                }
+                
+            } catch (error) {
+                console.error('❌ API Error:', error.message);
+                document.getElementById('api-result').innerHTML = `
+                    <div class="error">❌ API Error: ${error.message}</div>
+                `;
+            }
+        }
+        
+        function showRawData(data) {
+            console.log('📋 Showing raw data...');
+            document.getElementById('raw-data').innerHTML = `
+                <h4>Raw Product Data:</h4>
+                <pre>${JSON.stringify(data, null, 2)}</pre>
+                <div class="info">
+                    <strong>Key Fields:</strong><br>
+                    • ID: ${data.id}<br>
+                    • Name: ${data.name}<br>
+                    • Image URL: ${data.image_url || 'NULL'}<br>
+                    • Images: ${data.images ? 'EXISTS' : 'NULL'}<br>
+                    • Images Length: ${data.images ? data.images.length : 'N/A'}
+                </div>
+            `;
+        }
+        
+        function testImageParsing(data) {
+            console.log('🔧 Testing image parsing...');
+            const parsingDiv = document.getElementById('parsing-result');
+            
+            if (!data.images) {
+                parsingDiv.innerHTML = '<div class="error">❌ No images field found</div>';
+                return;
+            }
+            
+            try {
+                const images = JSON.parse(data.images);
+                console.log('✅ Images parsed successfully:', images);
+                parsingDiv.innerHTML = `
+                    <div class="success">✅ Images parsed successfully!</div>
+                    <div class="info">Number of images: ${images.length}</div>
+                    <pre>${JSON.stringify(images, null, 2)}</pre>
+                `;
+            } catch (e) {
+                console.error('❌ Error parsing images:', e.message);
+                parsingDiv.innerHTML = `
+                    <div class="error">❌ Error parsing images: ${e.message}</div>
+                    <div class="info">Raw images string:</div>
+                    <pre>${data.images}</pre>
+                `;
+            }
+        }
+        
+        function testImageLoading(data) {
+            console.log('🖼️ Testing image loading...');
+            const imageTestDiv = document.getElementById('image-test');
+            imageTestDiv.innerHTML = '<h4>Image Loading Test:</h4>';
+            
+            // Test main image
+            console.log('🖼️ Testing main image...');
+            const mainImg = document.createElement('img');
+            mainImg.src = data.image_url || 'https://via.placeholder.com/200x200?text=No+Image';
+            mainImg.alt = data.name;
+            mainImg.style.cssText = 'width: 200px; height: 200px; object-fit: cover; margin: 10px; border: 2px solid #ddd;';
+            mainImg.onload = () => {
+                console.log('✅ Main image loaded successfully');
+                mainImg.style.borderColor = 'green';
+            };
+            mainImg.onerror = () => {
+                console.error('❌ Main image failed to load');
+                mainImg.style.borderColor = 'red';
+            };
+            imageTestDiv.appendChild(mainImg);
+            
+            // Test images array
+            if (data.images) {
+                try {
+                    const images = JSON.parse(data.images);
+                    console.log(`🖼️ Testing ${images.length} images from array...`);
+                    
+                    images.forEach((imageUrl, index) => {
+                        const img = document.createElement('img');
+                        img.src = imageUrl;
+                        img.alt = `${data.name} - Image ${index + 1}`;
+                        img.style.cssText = 'width: 150px; height: 150px; object-fit: cover; margin: 10px; border: 2px solid #ddd;';
+                        img.onload = () => {
+                            console.log(`✅ Image ${index + 1} loaded successfully`);
+                            img.style.borderColor = 'green';
+                        };
+                        img.onerror = () => {
+                            console.error(`❌ Image ${index + 1} failed to load: ${imageUrl}`);
+                            img.style.borderColor = 'red';
+                        };
+                        imageTestDiv.appendChild(img);
+                    });
+                } catch (e) {
+                    console.error('❌ Error parsing images for loading test:', e.message);
+                }
+            }
+        }
+        
+        // Auto-test on page load
+        window.addEventListener('load', () => {
+            console.log('🚀 Page loaded, starting debug tests...');
+            testAPI();
+        });
+    </script>
+</body>
+</html>

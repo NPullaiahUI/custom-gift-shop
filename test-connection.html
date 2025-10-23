@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Connection Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success {
+            color: #28a745;
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .error {
+            color: #dc3545;
+            background: #f8d7da;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .info {
+            color: #0c5460;
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🗄️ Database Connection Test</h1>
+        <p>This page will test the connection to your MySQL database.</p>
+        
+        <div class="info">
+            <strong>Database Details:</strong><br>
+            Host: localhost<br>
+            Database: custom_gift_shop<br>
+            Username: root<br>
+            Password: 12345
+        </div>
+        
+        <button onclick="testConnection()">Test Database Connection</button>
+        <button onclick="testTables()">Check Tables</button>
+        <button onclick="testData()">Check Sample Data</button>
+        
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function testConnection() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="info">Testing connection...</div>';
+            
+            try {
+                const response = await fetch('php/api.php?action=test-connection');
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <strong>✅ Connection Successful!</strong><br>
+                            ${data.message}
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Connection Failed!</strong><br>
+                            ${data.error}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Error:</strong><br>
+                        ${error.message}<br>
+                        <small>Make sure you have a web server running (like XAMPP, WAMP, or PHP built-in server)</small>
+                    </div>
+                `;
+            }
+        }
+        
+        async function testTables() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="info">Checking tables...</div>';
+            
+            try {
+                const response = await fetch('php/api.php?action=get-categories');
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <strong>✅ Tables Working!</strong><br>
+                            Found ${data.data.length} categories in database
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Table Error!</strong><br>
+                            ${data.error}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Error:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+        
+        async function testData() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="info">Checking sample data...</div>';
+            
+            try {
+                const response = await fetch('php/api.php?action=get-products');
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <strong>✅ Sample Data Found!</strong><br>
+                            Found ${data.data.length} products in database<br>
+                            <small>Sample products: ${data.data.slice(0, 3).map(p => p.name).join(', ')}</small>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Data Error!</strong><br>
+                            ${data.error}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Error:</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

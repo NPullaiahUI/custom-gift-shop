@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Custom Gift Shop</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
+                <i class="fas fa-gift me-2"></i>CustomGift
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Header -->
+    <section class="checkout-header py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-5 fw-bold mb-3">Checkout</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                            <li class="breadcrumb-item"><a href="cart.html">Cart</a></li>
+                            <li class="breadcrumb-item active">Checkout</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Steps -->
+    <section class="checkout-steps py-3 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="checkout-progress">
+                        <div class="step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Information</div>
+                        </div>
+                        <div class="step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Shipping</div>
+                        </div>
+                        <div class="step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Payment</div>
+                        </div>
+                        <div class="step" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Review</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Content -->
+    <section class="checkout-content py-5">
+        <div class="container">
+            <form id="checkout-form">
+                <div class="row">
+                    <!-- Checkout Form -->
+                    <div class="col-lg-8">
+                        <!-- Step 1: Customer Information -->
+                        <div class="checkout-step" id="step-1">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-user me-2"></i>Customer Information
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">First Name *</label>
+                                            <input type="text" class="form-control" name="first_name" autocomplete="given-name" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Last Name *</label>
+                                            <input type="text" class="form-control" name="last_name" autocomplete="family-name" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Email Address *</label>
+                                            <input type="email" class="form-control" name="email" autocomplete="email" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Phone Number *</label>
+                                            <input type="tel" class="form-control" name="phone" autocomplete="tel" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Shipping Address -->
+                        <div class="checkout-step" id="step-2" style="display: none;">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-shipping-fast me-2"></i>Shipping Address
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12 mb-3">
+                                            <label class="form-label">Street Address *</label>
+                                            <input type="text" class="form-control" name="address" autocomplete="street-address" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">City *</label>
+                                            <input type="text" class="form-control" name="city" autocomplete="address-level2" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">State *</label>
+                                            <select class="form-select" name="state" autocomplete="address-level1" required>
+                                                <option value="">Select State</option>
+                                                <option value="AL">Alabama</option>
+                                                <option value="CA">California</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="NY">New York</option>
+                                                <option value="TX">Texas</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">ZIP Code *</label>
+                                            <input type="text" class="form-control" name="zip" autocomplete="postal-code" required>
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label class="form-label">Country</label>
+                                            <select class="form-select" name="country" autocomplete="country">
+                                                <option value="US">United States</option>
+                                                <option value="CA">Canada</option>
+                                                <option value="UK">United Kingdom</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="same-billing">
+                                        <label class="form-check-label" for="same-billing">
+                                            Use same address for billing
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Payment Method -->
+                        <div class="checkout-step" id="step-3" style="display: none;">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-credit-card me-2"></i>Payment Method
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="payment-methods mb-4">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="payment_method" id="credit-card" value="credit" checked>
+                                            <label class="form-check-label" for="credit-card">
+                                                <i class="fas fa-credit-card me-2"></i>Credit/Debit Card
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="payment_method" id="paypal" value="paypal">
+                                            <label class="form-check-label" for="paypal">
+                                                <i class="fab fa-paypal me-2"></i>PayPal
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="radio" name="payment_method" id="apple-pay" value="apple">
+                                            <label class="form-check-label" for="apple-pay">
+                                                <i class="fab fa-apple-pay me-2"></i>Apple Pay
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div id="credit-card-form">
+                                        <div class="row">
+                                            <div class="col-12 mb-3">
+                                                <label class="form-label">Card Number *</label>
+                                                <input type="text" class="form-control" name="card_number" placeholder="1234 5678 9012 3456">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">Expiry Date *</label>
+                                                <input type="text" class="form-control" name="expiry" placeholder="MM/YY">
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <label class="form-label">CVV *</label>
+                                                <input type="text" class="form-control" name="cvv" placeholder="123">
+                                            </div>
+                                            <div class="col-12 mb-3">
+                                                <label class="form-label">Cardholder Name *</label>
+                                                <input type="text" class="form-control" name="cardholder_name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Review Order -->
+                        <div class="checkout-step" id="step-4" style="display: none;">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-check-circle me-2"></i>Review Your Order
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="order-review">
+                                        <!-- Order details will be loaded here -->
+                                    </div>
+                                    
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="terms" required>
+                                        <label class="form-check-label" for="terms">
+                                            I agree to the <a href="#" class="text-primary">Terms and Conditions</a> and <a href="#" class="text-primary">Privacy Policy</a>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            Subscribe to our newsletter for updates and special offers
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="checkout-navigation mt-4">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-outline-secondary" id="prev-step" style="display: none;">
+                                        <i class="fas fa-arrow-left me-2"></i>Previous
+                                    </button>
+                                </div>
+                                <div class="col-md-6 text-md-end">
+                                    <button type="button" class="btn btn-primary" id="next-step">
+                                        Next <i class="fas fa-arrow-right ms-2"></i>
+                                    </button>
+                                    <button type="submit" class="btn btn-success btn-lg" id="place-order" style="display: none;">
+                                        <i class="fas fa-check me-2"></i>Place Order
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0">Order Summary</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="order-items">
+                                    <!-- Order items will be loaded here -->
+                                </div>
+                                
+                                <hr>
+                                
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Subtotal:</span>
+                                    <span id="order-subtotal">$0.00</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Shipping:</span>
+                                    <span id="order-shipping">$5.99</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Tax:</span>
+                                    <span id="order-tax">$0.00</span>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <strong>Total:</strong>
+                                    <strong id="order-total">$0.00</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Info -->
+                        <div class="card mt-4">
+                            <div class="card-body text-center">
+                                <h6 class="mb-3">Secure Checkout</h6>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <i class="fas fa-shield-alt fa-2x text-success mb-2"></i>
+                                        <small class="d-block">SSL Secure</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <i class="fas fa-lock fa-2x text-success mb-2"></i>
+                                        <small class="d-block">Encrypted</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <i class="fas fa-credit-card fa-2x text-success mb-2"></i>
+                                        <small class="d-block">Safe Payment</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center p-5">
+                    <i class="fas fa-check-circle fa-4x text-success mb-4"></i>
+                    <h3 class="mb-3">Order Placed Successfully!</h3>
+                    <p class="text-muted mb-4">Thank you for your order. You will receive a confirmation email shortly.</p>
+                    <div class="d-grid gap-2">
+                        <a href="index.html" class="btn btn-primary">Continue Shopping</a>
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-gift me-2"></i>CustomGift
+                    </h5>
+                    <p class="text-muted">Creating personalized gifts that make every moment special. Your happiness is our success.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-pinterest fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="products.html" class="text-muted text-decoration-none">Products</a></li>
+                        <li><a href="index.html#about" class="text-muted text-decoration-none">About</a></li>
+                        <li><a href="index.html#contact" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Product Categories</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Personalized Mugs</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Custom T-Shirts</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Photo Frames</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Jewelry</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Contact Info</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@customgift.com</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>123 Gift Street, City, State 12345</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 CustomGift. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Decor - Custom Gift Shop</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
+                <i class="fas fa-gift me-2"></i>CustomGift
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="category-personalized-mugs.html">Personalized Mugs</a></li>
+                            <li><a class="dropdown-item" href="category-photo-frames.html">Photo Frames</a></li>
+                            <li><a class="dropdown-item" href="category-custom-apparel.html">Custom Apparel</a></li>
+                            <li><a class="dropdown-item" href="category-jewelry.html">Jewelry</a></li>
+                            <li><a class="dropdown-item" href="category-phone-accessories.html">Phone Accessories</a></li>
+                            <li><a class="dropdown-item active" href="category-home-decor.html">Home Decor</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="products.html">All Products</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Header -->
+    <section class="category-header py-5 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="products.html">Categories</a></li>
+                            <li class="breadcrumb-item active">Home Decor</li>
+                        </ol>
+                    </nav>
+                    <h1 class="display-4 fw-bold mb-3">Home Decor</h1>
+                    <p class="lead text-muted">Transform your living space with our custom home decor collection. From personalized wall art to custom furniture, create a home that reflects your unique style and personality.</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Home Decor" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Features -->
+    <section class="category-features py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-palette fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Custom Design</h4>
+                        <p class="text-muted">Personalized designs tailored to your home's aesthetic</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-home fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Room Specific</h4>
+                        <p class="text-muted">Decor items designed for every room in your home</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-leaf fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Eco-Friendly</h4>
+                        <p class="text-muted">Sustainable materials and eco-friendly production methods</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="category-products py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h3 class="fw-bold">Our Home Decor Collection</h3>
+                    <p class="text-muted">Choose from our wide variety of custom home decor items</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-2 justify-content-md-end">
+                        <select class="form-select" style="max-width: 200px;" id="sort-filter">
+                            <option value="newest">Newest First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name A-Z</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4" id="products-container">
+                <!-- Products will be loaded dynamically -->
+                <div class="col-12 text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization Options -->
+    <section class="customization-options py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h3 class="fw-bold mb-3">Customization Options</h3>
+                    <p class="lead text-muted">Make your home decor truly unique with these customization options</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="customization-card text-center p-4">
+                        <div class="customization-icon mb-3">
+                            <i class="fas fa-image fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Photo Printing</h5>
+                        <p class="text-muted">Print your favorite photos on canvas, wood, or metal</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="customization-card text-center p-4">
+                        <div class="customization-icon mb-3">
+                            <i class="fas fa-paint-brush fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Color Matching</h5>
+                        <p class="text-muted">Match colors to your existing home decor</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="customization-card text-center p-4">
+                        <div class="customization-icon mb-3">
+                            <i class="fas fa-ruler fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Size Options</h5>
+                        <p class="text-muted">Custom sizes to fit your space perfectly</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="customization-card text-center p-4">
+                        <div class="customization-icon mb-3">
+                            <i class="fas fa-font fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Text & Quotes</h5>
+                        <p class="text-muted">Add inspirational quotes or family names</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Categories -->
+    <section class="room-categories py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h3 class="fw-bold mb-3">Decor by Room</h3>
+                    <p class="lead text-muted">Find the perfect decor for every room in your home</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="room-card text-center p-4">
+                        <div class="room-icon mb-3">
+                            <i class="fas fa-bed fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Bedroom</h5>
+                        <p class="text-muted">Personalized wall art, custom pillows, and bedroom accessories</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="room-card text-center p-4">
+                        <div class="room-icon mb-3">
+                            <i class="fas fa-utensils fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Kitchen</h5>
+                        <p class="text-muted">Custom kitchen signs, personalized cutting boards, and wall decor</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="room-card text-center p-4">
+                        <div class="room-icon mb-3">
+                            <i class="fas fa-couch fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Living Room</h5>
+                        <p class="text-muted">Canvas prints, custom throw pillows, and decorative signs</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="room-card text-center p-4">
+                        <div class="room-icon mb-3">
+                            <i class="fas fa-baby fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Nursery</h5>
+                        <p class="text-muted">Personalized nursery decor, name signs, and growth charts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-gift me-2"></i>CustomGift
+                    </h5>
+                    <p class="text-muted">Creating personalized gifts that make every moment special. Your happiness is our success.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-pinterest fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="#categories" class="text-muted text-decoration-none">Categories</a></li>
+                        <li><a href="index.html#about" class="text-muted text-decoration-none">About</a></li>
+                        <li><a href="index.html#contact" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Product Categories</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="category-personalized-mugs.html" class="text-muted text-decoration-none">Personalized Mugs</a></li>
+                        <li><a href="category-custom-apparel.html" class="text-muted text-decoration-none">Custom Apparel</a></li>
+                        <li><a href="category-photo-frames.html" class="text-muted text-decoration-none">Photo Frames</a></li>
+                        <li><a href="category-jewelry.html" class="text-muted text-decoration-none">Jewelry</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Contact Info</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@customgift.com</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>123 Gift Street, City, State 12345</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 CustomGift. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/category-decor.js"></script>
+</body>
+</html>

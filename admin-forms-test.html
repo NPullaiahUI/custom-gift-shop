@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Forms Test - Custom Gift Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <style>
+        .test-section { margin: 30px 0; padding: 20px; border: 2px solid #ddd; border-radius: 10px; }
+        .form-demo { background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { padding: 5px 0; }
+        .feature-list li i { color: #28a745; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">🔧 Admin Forms Test</h1>
+        
+        <div class="test-section">
+            <h2>📋 Admin Forms Features</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>✅ Category Form Features:</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Category name with auto-slug generation</li>
+                        <li><i class="fas fa-check"></i>Description field</li>
+                        <li><i class="fas fa-check"></i>Image URL with live preview</li>
+                        <li><i class="fas fa-check"></i>Status selection (Active/Inactive)</li>
+                        <li><i class="fas fa-check"></i>Sort order for display priority</li>
+                        <li><i class="fas fa-check"></i>Form validation</li>
+                        <li><i class="fas fa-check"></i>Real API integration</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>✅ Product Form Features:</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Product name and description</li>
+                        <li><i class="fas fa-check"></i>Price with decimal support</li>
+                        <li><i class="fas fa-check"></i>Category selection dropdown</li>
+                        <li><i class="fas fa-check"></i>Stock quantity management</li>
+                        <li><i class="fas fa-check"></i>Main image with preview</li>
+                        <li><i class="fas fa-check"></i>Multiple additional images</li>
+                        <li><i class="fas fa-check"></i>Features list</li>
+                        <li><i class="fas fa-check"></i>Sizes and colors options</li>
+                        <li><i class="fas fa-check"></i>Status management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔗 Quick Access Links</h2>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <a href="admin-login.html" class="btn btn-primary w-100">
+                        <i class="fas fa-sign-in-alt me-2"></i>Admin Login
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="admin-dashboard.html" class="btn btn-success w-100">
+                        <i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="index.html" class="btn btn-info w-100">
+                        <i class="fas fa-home me-2"></i>Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>📝 Form Demo</h2>
+            <div class="form-demo">
+                <h4>Category Form Demo:</h4>
+                <form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Category Name</label>
+                                <input type="text" class="form-control" placeholder="e.g., Custom Mugs" value="Custom Mugs">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Slug (Auto-generated)</label>
+                                <input type="text" class="form-control" value="custom-mugs" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter category description">High-quality custom mugs perfect for personalization</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Image URL</label>
+                        <input type="url" class="form-control" placeholder="https://example.com/image.jpg" value="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80">
+                        <div class="mt-2">
+                            <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Preview" class="img-fluid rounded" style="max-height: 150px;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="form-demo">
+                <h4>Product Form Demo:</h4>
+                <form>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-3">
+                                <label class="form-label">Product Name</label>
+                                <input type="text" class="form-control" placeholder="e.g., Personalized Coffee Mug" value="Personalized Coffee Mug">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea class="form-control" rows="4" placeholder="Enter product description">Custom ceramic mug with your favorite photo or text. Perfect for coffee lovers!</textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Price</label>
+                                        <input type="number" class="form-control" step="0.01" placeholder="0.00" value="24.99">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label class="form-label">Category</label>
+                                        <select class="form-select">
+                                            <option>Select Category</option>
+                                            <option selected>Custom Mugs</option>
+                                            <option>Photo Frames</option>
+                                            <option>Custom Apparel</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Main Image</label>
+                                <input type="url" class="form-control" placeholder="https://example.com/image.jpg" value="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80">
+                                <div class="mt-2">
+                                    <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Preview" class="img-fluid rounded" style="max-height: 200px;">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Additional Images</label>
+                                <textarea class="form-control" rows="3" placeholder="Enter image URLs separated by commas">https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80, https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🚀 How to Use Admin Forms</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Step 1: Login</h4>
+                    <p>Go to <a href="admin-login.html">Admin Login</a> and use:</p>
+                    <ul>
+                        <li><strong>Username:</strong> admin</li>
+                        <li><strong>Password:</strong> admin123</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Step 2: Access Forms</h4>
+                    <p>In the admin dashboard:</p>
+                    <ul>
+                        <li>Click <strong>"Categories"</strong> tab</li>
+                        <li>Click <strong>"Add New Category"</strong> button</li>
+                        <li>Or click <strong>"Products"</strong> tab</li>
+                        <li>Click <strong>"Add New Product"</strong> button</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔧 Technical Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-database fa-3x text-primary mb-3"></i>
+                            <h5>Database Integration</h5>
+                            <p>Real API calls to MySQL database</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                            <h5>Form Validation</h5>
+                            <p>Client-side and server-side validation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-image fa-3x text-info mb-3"></i>
+                            <h5>Image Preview</h5>
+                            <p>Live image preview as you type URLs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

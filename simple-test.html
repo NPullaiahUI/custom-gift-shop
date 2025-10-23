@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Product Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        img { max-width: 200px; margin: 10px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>Simple Product Image Test</h1>
+    
+    <div class="test-section">
+        <h2>Product Data</h2>
+        <div id="product-info"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Main Image</h2>
+        <img id="main-image" src="" alt="Main Image" style="width: 300px; height: 300px; object-fit: cover;">
+    </div>
+    
+    <div class="test-section">
+        <h2>Thumbnail Gallery</h2>
+        <div id="thumbnail-gallery"></div>
+    </div>
+
+    <script>
+        async function loadProduct() {
+            try {
+                console.log('Loading product...');
+                const response = await fetch('php/api.php?action=get-product&id=1');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const product = data.data;
+                    console.log('Product loaded:', product);
+                    
+                    // Show product info
+                    document.getElementById('product-info').innerHTML = `
+                        <p><strong>Name:</strong> ${product.name}</p>
+                        <p><strong>Price:</strong> $${product.price}</p>
+                        <p><strong>Image URL:</strong> ${product.image_url}</p>
+                        <p><strong>Images:</strong> ${product.images}</p>
+                    `;
+                    
+                    // Set main image
+                    const mainImg = document.getElementById('main-image');
+                    mainImg.src = product.image_url;
+                    mainImg.alt = product.name;
+                    
+                    // Create thumbnails
+                    if (product.images) {
+                        try {
+                            const images = JSON.parse(product.images);
+                            console.log('Parsed images:', images);
+                            
+                            const gallery = document.getElementById('thumbnail-gallery');
+                            gallery.innerHTML = '';
+                            
+                            images.forEach((imageUrl, index) => {
+                                const img = document.createElement('img');
+                                img.src = imageUrl;
+                                img.alt = `Image ${index + 1}`;
+                                img.style.cssText = 'width: 100px; height: 100px; object-fit: cover; margin: 5px; cursor: pointer;';
+                                img.onclick = () => {
+                                    mainImg.src = imageUrl;
+                                };
+                                gallery.appendChild(img);
+                            });
+                        } catch (e) {
+                            console.error('Error parsing images:', e);
+                        }
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+        
+        // Load product on page load
+        window.addEventListener('load', loadProduct);
+    </script>
+</body>
+</html>

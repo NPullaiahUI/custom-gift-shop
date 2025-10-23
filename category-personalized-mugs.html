@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Mugs - Custom Gift Shop</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="index.html">
+                <i class="fas fa-gift me-2"></i>CustomGift
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="category-personalized-mugs.html">Personalized Mugs</a></li>
+                            <li><a class="dropdown-item" href="category-photo-frames.html">Photo Frames</a></li>
+                            <li><a class="dropdown-item" href="category-custom-apparel.html">Custom Apparel</a></li>
+                            <li><a class="dropdown-item" href="category-jewelry.html">Jewelry</a></li>
+                            <li><a class="dropdown-item" href="category-phone-accessories.html">Phone Accessories</a></li>
+                            <li><a class="dropdown-item" href="category-home-decor.html">Home Decor</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="products.html">All Products</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                                0
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Category Header -->
+    <section class="category-header py-5 mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="products.html">Categories</a></li>
+                            <li class="breadcrumb-item active">Personalized Mugs</li>
+                        </ol>
+                    </nav>
+                    <h1 class="display-4 fw-bold mb-3">Personalized Mugs</h1>
+                    <p class="lead text-muted">Create the perfect custom mug with your favorite photos, text, or designs. Perfect for coffee lovers, tea enthusiasts, or anyone who appreciates a personalized touch to their daily routine.</p>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                         alt="Personalized Mugs" class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Features -->
+    <section class="category-features py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-image fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Photo Printing</h4>
+                        <p class="text-muted">High-quality photo printing that lasts through countless washes</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-font fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Custom Text</h4>
+                        <p class="text-muted">Add names, quotes, or special messages in your preferred font</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center p-4 h-100">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-shield-alt fa-3x text-primary"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Dishwasher Safe</h4>
+                        <p class="text-muted">Premium ceramic mugs that are dishwasher and microwave safe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="category-products py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h3 class="fw-bold">Our Mug Collection</h3>
+                    <p class="text-muted">Choose from our wide variety of personalized mug designs</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="d-flex gap-2 justify-content-md-end">
+                        <select class="form-select" style="max-width: 200px;" id="sort-filter">
+                            <option value="newest">Newest First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="name">Name A-Z</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4" id="products-container">
+                <!-- Products will be loaded dynamically -->
+                <div class="col-12 text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customization Options -->
+    <section class="customization-options py-5 bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h3 class="fw-bold mb-3">Customization Options</h3>
+                    <p class="lead text-muted">Make your mug truly unique with these customization options</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="customization-card text-center p-4">
+                        <div class="customization-icon mb-3">
+                            <i class="fas fa-camera fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Photo Upload</h5>
+                        <p class="text-muted">Upload your favorite photos and we'll print them on your mug</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="customization-card text-center p-4">
+                        <div class="customization-icon mb-3">
+                            <i class="fas fa-palette fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Color Options</h5>
+                        <p class="text-muted">Choose from various mug colors and handle styles</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="customization-card text-center p-4">
+                        <div class="customization-icon mb-3">
+                            <i class="fas fa-text-width fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Font Selection</h5>
+                        <p class="text-muted">Select from multiple font styles for your custom text</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="customization-card text-center p-4">
+                        <div class="customization-icon mb-3">
+                            <i class="fas fa-ruler fa-2x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Size Options</h5>
+                        <p class="text-muted">Available in 11oz, 15oz, and 20oz sizes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="text-center fw-bold mb-5">Frequently Asked Questions</h3>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How long does it take to create a personalized mug?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Our personalized mugs typically take 3-5 business days to create and ship. Rush orders are available for an additional fee.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Are the mugs dishwasher safe?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! All our personalized mugs are dishwasher and microwave safe. The printing is permanent and won't fade or peel.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    What file formats do you accept for photos?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We accept JPG, PNG, and PDF files. For best results, please upload high-resolution images (at least 300 DPI).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fas fa-gift me-2"></i>CustomGift
+                    </h5>
+                    <p class="text-muted">Creating personalized gifts that make every moment special. Your happiness is our success.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-pinterest fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="#categories" class="text-muted text-decoration-none">Categories</a></li>
+                        <li><a href="index.html#about" class="text-muted text-decoration-none">About</a></li>
+                        <li><a href="index.html#contact" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Product Categories</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="category-personalized-mugs.html" class="text-muted text-decoration-none">Personalized Mugs</a></li>
+                        <li><a href="category-custom-apparel.html" class="text-muted text-decoration-none">Custom Apparel</a></li>
+                        <li><a href="category-photo-frames.html" class="text-muted text-decoration-none">Photo Frames</a></li>
+                        <li><a href="category-jewelry.html" class="text-muted text-decoration-none">Jewelry</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold mb-3">Contact Info</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@customgift.com</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i>123 Gift Street, City, State 12345</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2024 CustomGift. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-muted text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/category-mugs.js"></script>
+</body>
+</html>

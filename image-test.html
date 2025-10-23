@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test - Product ID 1</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .image-test { margin: 10px 0; }
+        img { max-width: 200px; margin: 10px; border: 1px solid #ddd; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>Product ID 1 Image Test</h1>
+    
+    <div class="test-section">
+        <h2>API Test</h2>
+        <button onclick="testAPI()">Test API</button>
+        <div id="api-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Image Loading Test</h2>
+        <div id="image-test"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Log</h2>
+        <div id="console-log"></div>
+    </div>
+
+    <script>
+        // Override console.log to show in page
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logDiv = document.getElementById('console-log');
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            logDiv.innerHTML += '<div class="success">LOG: ' + args.join(' ') + '</div>';
+        };
+        
+        console.error = function(...args) {
+            originalError.apply(console, args);
+            logDiv.innerHTML += '<div class="error">ERROR: ' + args.join(' ') + '</div>';
+        };
+        
+        async function testAPI() {
+            try {
+                console.log('Testing API...');
+                const response = await fetch('php/api.php?action=get-product&id=1');
+                const data = await response.json();
+                
+                document.getElementById('api-result').innerHTML = `
+                    <div class="success">API Success!</div>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+                
+                if (data.success && data.data) {
+                    testImageLoading(data.data);
+                }
+                
+            } catch (error) {
+                console.error('API Error:', error);
+                document.getElementById('api-result').innerHTML = `
+                    <div class="error">API Error: ${error.message}</div>
+                `;
+            }
+        }
+        
+        function testImageLoading(product) {
+            console.log('Testing image loading for product:', product.name);
+            console.log('Product images field:', product.images);
+            
+            const imageTestDiv = document.getElementById('image-test');
+            imageTestDiv.innerHTML = '<h3>Testing Images:</h3>';
+            
+            // Test main image
+            const mainImg = document.createElement('img');
+            mainImg.src = product.image_url || 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80';
+            mainImg.alt = product.name;
+            mainImg.style.cssText = 'width: 200px; height: 200px; object-fit: cover; margin: 10px; border: 2px solid #ddd;';
+            mainImg.onload = () => console.log('Main image loaded successfully');
+            mainImg.onerror = () => console.error('Main image failed to load');
+            imageTestDiv.appendChild(mainImg);
+            
+            // Test images array
+            if (product.images) {
+                try {
+                    const images = JSON.parse(product.images);
+                    console.log('Parsed images array:', images);
+                    console.log('Number of images:', images.length);
+                    
+                    images.forEach((imageUrl, index) => {
+                        const img = document.createElement('img');
+                        img.src = imageUrl;
+                        img.alt = `${product.name} - Image ${index + 1}`;
+                        img.style.cssText = 'width: 150px; height: 150px; object-fit: cover; margin: 10px; border: 2px solid #ddd;';
+                        img.onload = () => console.log(`Image ${index + 1} loaded successfully: ${imageUrl}`);
+                        img.onerror = () => console.error(`Image ${index + 1} failed to load: ${imageUrl}`);
+                        imageTestDiv.appendChild(img);
+                    });
+                } catch (e) {
+                    console.error('Error parsing images JSON:', e);
+                    console.error('Raw images string:', product.images);
+                }
+            } else {
+                console.log('No images field found in product data');
+            }
+        }
+        
+        // Auto-test on page load
+        window.addEventListener('load', () => {
+            console.log('Page loaded, starting tests...');
+            testAPI();
+        });
+    </script>
+</body>
+</html>

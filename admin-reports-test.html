@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Reports Test - Custom Gift Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <style>
+        .test-section { margin: 30px 0; padding: 20px; border: 2px solid #ddd; border-radius: 10px; }
+        .report-demo { background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { padding: 5px 0; }
+        .feature-list li i { color: #28a745; margin-right: 10px; }
+        .metric-demo { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 10px; text-align: center; margin: 10px 0; }
+        .chart-demo { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">📊 Admin Reports Test</h1>
+        
+        <div class="test-section">
+            <h2>📈 Report Types Available</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>✅ Overview Reports:</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Key Performance Metrics</li>
+                        <li><i class="fas fa-check"></i>Revenue Trends</li>
+                        <li><i class="fas fa-check"></i>Sales by Category</li>
+                        <li><i class="fas fa-check"></i>Recent Orders</li>
+                        <li><i class="fas fa-check"></i>Top Products</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>✅ Detailed Reports:</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Sales Performance</li>
+                        <li><i class="fas fa-check"></i>Product Analytics</li>
+                        <li><i class="fas fa-check"></i>Customer Analytics</li>
+                        <li><i class="fas fa-check"></i>Inventory Reports</li>
+                        <li><i class="fas fa-check"></i>Low Stock Alerts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔗 Quick Access Links</h2>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <a href="admin-login.html" class="btn btn-primary w-100">
+                        <i class="fas fa-sign-in-alt me-2"></i>Admin Login
+                    </a>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <a href="admin-dashboard.html" class="btn btn-success w-100">
+                        <i class="fas fa-tachometer-alt me-2"></i>Admin Dashboard
+                    </a>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <a href="admin-reports.html" class="btn btn-info w-100">
+                        <i class="fas fa-chart-line me-2"></i>Reports Dashboard
+                    </a>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <a href="index.html" class="btn btn-warning w-100">
+                        <i class="fas fa-home me-2"></i>Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>📊 Sample Metrics</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="metric-demo">
+                        <h3>$12,500</h3>
+                        <p class="mb-0">Total Revenue</p>
+                        <small>+12.5% from last period</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-demo" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+                        <h3>156</h3>
+                        <p class="mb-0">Total Orders</p>
+                        <small>+8.3% from last period</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-demo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <h3>24</h3>
+                        <p class="mb-0">Active Products</p>
+                        <small>+4.2% from last period</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="metric-demo" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <h3>89</h3>
+                        <p class="mb-0">Total Customers</p>
+                        <small>+15.7% from last period</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>📈 Chart Types Available</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="chart-demo">
+                        <h5><i class="fas fa-chart-line me-2"></i>Line Charts</h5>
+                        <p>Revenue trends, customer growth, sales performance over time</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="chart-demo">
+                        <h5><i class="fas fa-chart-bar me-2"></i>Bar Charts</h5>
+                        <p>Product performance, stock levels, sales comparisons</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="chart-demo">
+                        <h5><i class="fas fa-chart-pie me-2"></i>Pie/Doughnut Charts</h5>
+                        <p>Sales by category, customer segments, product distribution</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔧 Report Features</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>📅 Date Range Filters:</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>Today</li>
+                        <li><i class="fas fa-check"></i>This Week</li>
+                        <li><i class="fas fa-check"></i>This Month</li>
+                        <li><i class="fas fa-check"></i>This Quarter</li>
+                        <li><i class="fas fa-check"></i>This Year</li>
+                        <li><i class="fas fa-check"></i>Custom Range</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>📤 Export Options:</h4>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i>PDF Export</li>
+                        <li><i class="fas fa-check"></i>Excel Export</li>
+                        <li><i class="fas fa-check"></i>CSV Export</li>
+                        <li><i class="fas fa-check"></i>Print Reports</li>
+                        <li><i class="fas fa-check"></i>Email Reports</li>
+                        <li><i class="fas fa-check"></i>Scheduled Reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>📋 Sample Data Tables</h2>
+            <div class="report-demo">
+                <h4>Recent Orders:</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#1001</td>
+                                <td>John Doe</td>
+                                <td>$45.99</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                                <td>2024-01-15</td>
+                            </tr>
+                            <tr>
+                                <td>#1002</td>
+                                <td>Jane Smith</td>
+                                <td>$32.50</td>
+                                <td><span class="badge bg-warning">Processing</span></td>
+                                <td>2024-01-14</td>
+                            </tr>
+                            <tr>
+                                <td>#1003</td>
+                                <td>Mike Johnson</td>
+                                <td>$78.25</td>
+                                <td><span class="badge bg-info">Shipped</span></td>
+                                <td>2024-01-13</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="report-demo">
+                <h4>Top Products:</h4>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Sales</th>
+                                <th>Revenue</th>
+                                <th>Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Personalized Coffee Mug</td>
+                                <td>45</td>
+                                <td>$1,124.55</td>
+                                <td>4.5 ⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Custom Photo Frame</td>
+                                <td>32</td>
+                                <td>$799.68</td>
+                                <td>4.3 ⭐</td>
+                            </tr>
+                            <tr>
+                                <td>Personalized T-Shirt</td>
+                                <td>28</td>
+                                <td>$699.72</td>
+                                <td>4.2 ⭐</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🚀 How to Use Reports</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Step 1: Login</h4>
+                    <p>Go to <a href="admin-login.html">Admin Login</a> and use:</p>
+                    <ul>
+                        <li><strong>Username:</strong> admin</li>
+                        <li><strong>Password:</strong> admin123</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Step 2: Access Reports</h4>
+                    <p>In the admin dashboard:</p>
+                    <ul>
+                        <li>Click <strong>"Reports"</strong> tab</li>
+                        <li>Select date range and filters</li>
+                        <li>Choose report type</li>
+                        <li>Click <strong>"Generate Report"</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>🔧 Technical Features</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                            <h5>Interactive Charts</h5>
+                            <p>Chart.js powered interactive visualizations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-database fa-3x text-success mb-3"></i>
+                            <h5>Real-time Data</h5>
+                            <p>Live data from MySQL database</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-mobile-alt fa-3x text-info mb-3"></i>
+                            <h5>Responsive Design</h5>
+                            <p>Works perfectly on all devices</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
